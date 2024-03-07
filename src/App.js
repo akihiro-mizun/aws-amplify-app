@@ -1,6 +1,11 @@
 import React from "react"
 import './App.css';
 //import { useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Contents from './pages/Contents';
 
 function App() {
   //let history = useNavigate();
@@ -15,11 +20,15 @@ function App() {
   //</button>
     
   return (
-    <div className="App">
+    <BrowserRouter>
       <div>Hello World</div>
       <br />
-      <div>内容追加</div>
-    </div>
+    <Routes>
+      <Route path={`/`} element={<Home />} />
+        <Route path={`/about`} element={<About />} />
+        <Route path={`/contents`} element={<Contents />} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
